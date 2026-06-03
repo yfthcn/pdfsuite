@@ -1,0 +1,7 @@
+# Tercih edilen kurulum `pip install .` / `.[gui]` / `.[web]`'tir (pyproject.toml kaynaktır).
+# Bu dosya hızlı/CI kurulumu içindir: temel çalışma bağımlılıkları, kurulu sürümlere pinlenmiş.
+# Geliştirme/test (GUI + web + araçlar) için: requirements-dev.txt
+
+pypdf==6.12.2
+pymupdf==1.27.2.3
+pillow==12.2.0

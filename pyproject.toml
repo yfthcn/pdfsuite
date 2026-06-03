@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pdfsuite"
+version = "1.0.0"
+description = "Modern, minimum bir PDF araç takımı — bilgi, birleştir, ayır, PDF<->görsel (CLI / GUI / API)."
+readme = "README.md"
+requires-python = ">=3.14"
+license = "AGPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [{ name = "kaktusdev", email = "info@kaktusdev.net" }]
+keywords = ["pdf", "merge", "split", "convert", "pymupdf", "pypdf"]
+classifiers = [
+    "Programming Language :: Python :: 3.14",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Operating System :: OS Independent",
+    "Topic :: Utilities",
+]
+
+# Temel (minimum) bağımlılıklar — `pip install .`
+dependencies = [
+    "pypdf>=6.0",
+    "pymupdf>=1.26",
+    "pillow>=11.0",  # webp çıktısı (PyMuPDF png/jpg yazar, webp yazamaz)
+]
+
+[project.optional-dependencies]
+# Modern masaüstü GUI — `pip install .[gui]`
+gui = ["customtkinter>=5.2"]
+# Web/API — `pip install .[web]`
+web = ["fastapi>=0.115", "uvicorn>=0.30", "python-multipart>=0.0.9"]
+# Geliştirme/test — `pip install .[dev]` (web extra'sı API testleri için gerekir)
+dev = ["pytest>=8.0", "ruff>=0.6", "httpx>=0.27", "pdfsuite[web]"]
+
+[project.urls]
+homepage = "https://kaktusdev.net"
+repository = "https://github.com/yfthcn"
+
+[project.scripts]
+pdfsuite = "pdfsuite.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["pdfsuite"]
+# Dil dosyaları paket içinde (pdfsuite/locales/*.json) olduğundan wheel'e
+# varsayılan olarak dahil edilir; gitignore'a takılmasınlar diye de işaretliyoruz.
+artifacts = ["pdfsuite/locales/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

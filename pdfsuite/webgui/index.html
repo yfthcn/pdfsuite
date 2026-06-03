@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pdfsuite</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">📄</span>
+      <div>
+        <h1>pdfsuite</h1>
+        <p class="tagline">Modern PDF araç takımı — bilgi · birleştir · ayır · dönüştür</p>
+      </div>
+    </div>
+    <button id="theme-toggle" class="ghost">🌙 / ☀️</button>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="info">Bilgi</button>
+    <button class="tab" data-tab="merge">Birleştir</button>
+    <button class="tab" data-tab="split">Ayır</button>
+    <button class="tab" data-tab="images">Görsel→PDF</button>
+  </nav>
+
+  <main>
+    <!-- Bilgi -->
+    <section class="panel active" id="info">
+      <h2>PDF Bilgisi</h2>
+      <input type="file" id="info-file" accept="application/pdf" />
+      <button class="primary" data-action="info">Bilgiyi Getir</button>
+      <pre class="output" id="info-out"></pre>
+    </section>
+
+    <!-- Birleştir -->
+    <section class="panel" id="merge">
+      <h2>PDF Birleştir</h2>
+      <input type="file" id="merge-files" accept="application/pdf" multiple />
+      <input type="text" id="merge-name" placeholder="çıktı adı (merged.pdf)" />
+      <button class="primary" data-action="merge">Birleştir ve İndir</button>
+      <pre class="output" id="merge-out"></pre>
+    </section>
+
+    <!-- Ayır -->
+    <section class="panel" id="split">
+      <h2>PDF Ayır / Görsele Çevir</h2>
+      <input type="file" id="split-file" accept="application/pdf" />
+      <input type="text" id="split-pages" placeholder="sayfalar: 1-3,5 (boş = tümü)" />
+      <div class="row">
+        <select id="split-mode">
+          <option value="pdf">Ayrı PDF</option>
+          <option value="image">Görsel</option>
+        </select>
+        <select id="split-fmt">
+          <option>png</option><option>jpg</option><option>webp</option>
+        </select>
+        <select id="split-dpi">
+          <option>72</option><option selected>150</option><option>200</option><option>300</option>
+        </select>
+      </div>
+      <button class="primary" data-action="split">Çalıştır</button>
+      <pre class="output" id="split-out"></pre>
+    </section>
+
+    <!-- Görsel→PDF -->
+    <section class="panel" id="images">
+      <h2>Görsellerden PDF</h2>
+      <input type="file" id="images-files" accept="image/*" multiple />
+      <input type="text" id="images-name" placeholder="çıktı adı (output.pdf)" />
+      <button class="primary" data-action="images">PDF Üret ve İndir</button>
+      <pre class="output" id="images-out"></pre>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© kaktusdev</span>
+    <a href="https://kaktusdev.net" target="_blank" rel="noopener">kaktusdev.net</a>
+    <a href="https://github.com/yfthcn" target="_blank" rel="noopener">github.com/yfthcn</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

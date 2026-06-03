@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+output/*
+!output/.gitkeep
+.claude/settings.local.json
+TECHNICAL.md
+tests/
+tests/
+TECHNICAL.md
