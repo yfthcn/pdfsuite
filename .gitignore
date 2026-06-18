@@ -7,6 +7,3 @@ output/*
 !output/.gitkeep
 .claude/settings.local.json
 TECHNICAL.md
-tests/
-tests/
-TECHNICAL.md

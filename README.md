@@ -5,7 +5,9 @@
 Modern, minimum-dependency PDF toolkit with one core and three interfaces (CLI / GUI / API).
 Built for **Python 3.14**.
 
-📚 [TECHNICAL.md](TECHNICAL.md) (developer/architecture) · 🗺️ [ROADMAP.md](ROADMAP.md) (versions)
+[![tests](https://github.com/yfthcn/pdfsuite/actions/workflows/ci.yml/badge.svg)](https://github.com/yfthcn/pdfsuite/actions/workflows/ci.yml)
+
+🗺️ [ROADMAP.md](ROADMAP.md) (versions)
 
 ---
 
